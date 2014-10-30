@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: thumbor_ng
-# Recipe:: haproxy
+# Recipe:: varnish
 #
 # Copyright 2014, Virender Khatri
 #
@@ -17,4 +17,4 @@
 # limitations under the License.
 #
 
-# include_recipe 'haproxy'
+# include_recipe 'varnish'
