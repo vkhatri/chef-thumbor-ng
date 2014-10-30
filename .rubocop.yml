@@ -1,0 +1,23 @@
+AllCops:
+  Exclude:
+    - Rakefile
+    - Vagrantfile
+    - Thorfile
+AlignParameters:
+  Enabled: true
+Encoding:
+  Enabled: false
+HashSyntax:
+  Enabled: false
+LineLength:
+  Enabled: false
+MethodLength:
+  Max: 30
+BracesAroundHashParameters:
+  Enabled: true
+CyclomaticComplexity:
+  Enabled: false
+GuardClause:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Max: 14

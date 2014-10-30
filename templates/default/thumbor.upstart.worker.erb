@@ -1,0 +1,35 @@
+#
+# This file is managed by Chef.
+# Do NOT modify this file directly.
+#
+
+description "Thumbor image manipulation service"
+
+start on runlevel [345]
+stop on stopped thumbor
+
+console log
+
+<% if @upstart_respawn -%>
+respawn
+respawn limit 5 10
+<% end -%>
+umask 022
+
+setuid <%= @user %>
+setgid <%= @group %>
+
+env DAEMON=<%= @binary %>
+
+env conffile=<%= @conf_file %>
+
+env keyfile=<%= @key_file %>
+
+env ip=<%= @listen_address %>
+
+#chdir /var/lib/thumbor
+chdir /usr/local/lib/python2.7/dist-packages/thumbor
+
+instance $p
+
+exec $DAEMON -c "${conffile}" -i "${ip}" -k "${keyfile}" -p "${p}" ><%= @log_dir -%>/thumbor-$p.log 2>&1
