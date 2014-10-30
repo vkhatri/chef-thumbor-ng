@@ -1,12 +1,10 @@
 thumbor_ng Cookbook
 ================
 
-This is a [Chef] Cookbook to Install and Configure [Thumbor] from pip.
+This is a [Chef] Cookbook to Install and Configure [Thumbor].
 
 This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
 
-Lots of changes and updates has been introduced this cookbook, check out CHANGELOG for more
-details.
 
 ## Supports OS
 
