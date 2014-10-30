@@ -11,7 +11,7 @@ This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
 https://github.com/vkhatri/chef-thumbor-ng
 
 
-## Supports OS
+## Supported OS
 
 Currently cookbook supports only Ubuntu 12.04.
 
@@ -19,7 +19,7 @@ Currently cookbook supports only Ubuntu 12.04.
 ## Supported Install Methods
 
 This cookbook only supports `pip` based installation. As mentioned in [Thumbor] wiki, new release is
-always available via `pip`. Other install methods like `source code` or `package` is not
+always available via `pip`. Other install methods like `source code` or `package` are not
 incorporated in this cookbook.
 
 ## Recipes
@@ -55,11 +55,11 @@ incorporated in this cookbook.
 
  * `default['thumbor_ng']['notify_restart']` (default: `true`): notify thumbor service on a resource change
 
- * `default['thumbor_ng']['setup_redis']` (default: `true`): whether to setup redis instance using cookbook - redisio
+ * `default['thumbor_ng']['setup_redis']` (default: `true`): whether to setup redis instance using cookbook - `redisio`
 
  * `default['thumbor_ng']['setup_user']` (default: `true`): setup user for thumbor service
 
- * `default['thumbor_ng']['monit']['enable']` (default: `false`): enables monit checks for nginx and thumbor service using monit-ng cookbook
+ * `default['thumbor_ng']['monit']['enable']` (default: `false`): enables monit checks for nginx and thumbor service using cookbook - `monit-ng`
 
  * <del> `default['thumbor_ng']['queue']['type']` (default: `redis`): thumbor detector queue type, option complete setup not tested yet </del>
 
@@ -98,7 +98,7 @@ incorporated in this cookbook.
  * `default['thumbor_ng']['user_home']` (default: `nil`): thumbor service user home directory
 
 
-## Cookbook Repository Attributes
+## Cookbook apt Repositories Attributes
 
  * `default['thumbor_ng']['apt']['thumbor']['uri']` (default: `http://ppa.launchpad.net/thumbor/ppa/ubuntu`): repo uri
 
@@ -129,7 +129,7 @@ incorporated in this cookbook.
  * `default['thumbor_ng']['apt']['multiverse']['action']` (default: `add`): apt_repository resource action
 
 
-## thumbor_ng Service Ulimit Attributes
+## Cookbook thumbor Service Ulimit Attributes
 
  * `default['thumbor_ng']['limits']['memlock']` (default: `unlimited`): thumbor service memory limit
 
@@ -138,7 +138,7 @@ incorporated in this cookbook.
  * `default['thumbor_ng']['limits']['nproc']` (default: `unlimited`): thumbor service proc limit
 
 
-## thumbor_ng Nginx Attributes
+## Cookbook nginx Attributes
 
  * `default['nginx']['default_site_enabled']` (default: `false`): disable default nginx site
 
@@ -164,8 +164,24 @@ incorporated in this cookbook.
 
  * `default['thumbor_ng']['nginx']['vhost']['variables']` (default: `{}`): nginx thumbor vhost template variables
 
+        For more nginx attributes, check out nginx cookbook
 
-## thumbor_ng Default Configuration Attributes
+
+## Cookbook redis Attributes
+
+Redis is setup using cookbook `redisio`.
+
+        For more nginx attributes, check out redisio cookbook
+
+
+## Cookbook monit Attributes
+
+Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
+
+        For more monit checks attributes & configuration, check out monit-ng cookbook
+
+
+## Cookbook thumbor Default Configuration Attributes
 
  * `default['thumbor_ng']['options']['ENGINE']` (default: `pil`): thumbor engine
 
