@@ -6,6 +6,11 @@ This is a [Chef] Cookbook to Install and Configure [Thumbor].
 This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
 
 
+## Repository
+
+https://github.com/vkhatri/chef-thumbor-ng
+
+
 ## Supports OS
 
 Currently cookbook supports only Ubuntu 12.04.
