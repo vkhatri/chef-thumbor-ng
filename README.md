@@ -183,38 +183,9 @@ Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
 
 ## Cookbook thumbor Default Configuration Attributes
 
- * `default['thumbor_ng']['options']['ENGINE']` (default: `pil`): thumbor engine
-
- * `default['thumbor_ng']['options']['QUALITY']` (default: `85`): quality of the generated image
-
- * `default['thumbor_ng']['options']['MAX_AGE']` (default: ``): client-side cache in seconds
-
- * `default['thumbor_ng']['options']['MAX_AGE_TEMP_IMAGE']` (default: `0`): client-side caching time for temporary images (using queued detectors or after detection errors)
-
- * `default['thumbor_ng']['options']['LOADER']` (default: `thumbor_ng.loaders.http_loader`): the way images are to be loaded
-
- * `default['thumbor_ng']['options']['UPLOAD_ENABLED']` (default: `False`): allow image upload
-
- * `default['thumbor_ng']['options']['UPLOAD_PHOTO_STORAGE']` (default: `False`): uploaded image storage type
-
- * `default['thumbor_ng']['options']['RESULT_STORAGE']` (default: `thumbor.result_storages.file_storage`): thumbor storage for result image
-
- * `default['thumbor_ng']['options']['STORAGE']` (default: `thumbor.storages.file_storage`): thumbor file storage
-
  * `default['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH']` (default: `/var/lib/thumbor/file_storage`): thumbor file storage location
 
  * `default['thumbor_ng']['options']['RESULT_STORAGE_FILE_STORAGE_ROOT_PATH']` (default: `/var/lib/thumbor/result_storage`): thumbor result file storage location
-
- * `default['thumbor_ng']['options']['STORES_CRYPTO_KEY_FOR_EACH_IMAGE']` (default: `True`): stores the crypto key in each image in the storage
-
-
- * `default['thumbor_ng']['options']['DETECTORS']` (default: `[]`): thumbor detectors
-
- * `default['thumbor_ng']['options']['AUTO_WEBP']` (default: `True`): enable auto webp
-
- * `default['thumbor_ng']['options']['ALLOW_UNSAFE_URL']` (default: `True`): allow unsafe url
-
- * `default['thumbor_ng']['options']['FILTERS']` (default: `check ::default attribute file`): thumbor filters
 
 
 ## Cookbook Dependencies

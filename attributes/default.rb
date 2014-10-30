@@ -36,67 +36,11 @@ default['thumbor_ng']['limits']['nproc']      = 'unlimited'
 
 ##### thumbor configuration options
 # https://github.com/thumbor/thumbor/wiki/Configuration
-
-# the quality of the generated image
-default['thumbor_ng']['options']['QUALITY'] = 85
-
-# client-side cache in seconds
-default['thumbor_ng']['options']['MAX_AGE'] = 24 * 60 * 60
-
-# client-side caching time for temporary images (using queued detectors or after detection errors)
-default['thumbor_ng']['options']['MAX_AGE_TEMP_IMAGE'] = 0
-
-# thumbor images loader
-default['thumbor_ng']['options']['LOADER'] = 'thumbor.loaders.http_loader'
-
-# enable thumbor image upload
-default['thumbor_ng']['options']['UPLOAD_ENABLED'] = 'False'
-default['thumbor_ng']['options']['UPLOAD_PHOTO_STORAGE'] = 'False'
-
-# thumbor storage
-default['thumbor_ng']['options']['STORAGE'] = 'thumbor.storages.file_storage'
-default['thumbor_ng']['options']['RESULT_STORAGE'] = 'thumbor.result_storages.file_storage'
-default['thumbor_ng']['options']['RESULT_STORAGE_STORES_UNSAFE'] = 'True'
+# For default parameters value, check out thumbor-config command
 
 # thumbor storage location
 default['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH'] = '/var/lib/thumbor/storage'
 default['thumbor_ng']['options']['RESULT_STORAGE_FILE_STORAGE_ROOT_PATH'] = '/var/lib/thumbor/result-storage'
-
-default['thumbor_ng']['options']['RESULT_STORAGE_EXPIRATION_SECONDS'] = 60 * 60
-
-# stores the crypto key in each image in the storage
-default['thumbor_ng']['options']['STORES_CRYPTO_KEY_FOR_EACH_IMAGE'] = 'False'
-
-# thumbor imaging engine
-default['thumbor_ng']['options']['ENGINE'] = 'thumbor.engines.pil'
-
-# thumbor detectors
-default['thumbor_ng']['options']['DETECTORS'] = []
-
-# enable auto web[
-default['thumbor_ng']['options']['AUTO_WEBP'] = 'False'
-
-# allow unsafe url
-default['thumbor_ng']['options']['ALLOW_UNSAFE_URL'] = 'True'
-
-# thumbor security key used to encrypt/decrypt urls.
-default['thumbor_ng']['options']['SECURITY_KEY'] = nil
-
-# thumbor filters
-default['thumbor_ng']['options']['FILTERS'] = [
-  'thumbor.filters.brightness',
-  'thumbor.filters.contrast',
-  'thumbor.filters.rgb',
-  'thumbor.filters.round_corner',
-  'thumbor.filters.quality',
-  'thumbor.filters.noise',
-  'thumbor.filters.watermark',
-  'thumbor.filters.equalize',
-  'thumbor.filters.fill',
-  'thumbor.filters.sharpen',
-  'thumbor.filters.strip_icc',
-  'thumbor.filters.frame'
-]
 
 ##### monit
 default['thumbor_ng']['monit']['enable'] = false
