@@ -25,8 +25,6 @@ when 'debian'
     uri node['thumbor_ng']['apt']['thumbor']['uri']
     distribution node['thumbor_ng']['apt']['thumbor']['distribution']
     components node['thumbor_ng']['apt']['thumbor']['components']
-    keyserver node['thumbor_ng']['apt']['thumbor']['keyserver']
-    key node['thumbor_ng']['apt']['thumbor']['key']
     deb_src node['thumbor_ng']['apt']['thumbor']['deb_src']
     action node['thumbor_ng']['apt']['thumbor']['action']
   end
@@ -47,13 +45,34 @@ when 'debian'
                          libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev libxvidcore-dev
                          texi2html yasm zlib1g-dev zlib1g-dbg zlib1g libgstreamer0.10-0 libgstreamer0.10-dev libgstreamer0.10-0-dbg
                          gstreamer0.10-tools gstreamer0.10-plugins-base libgstreamer-plugins-base0.10-dev gstreamer0.10-plugins-good
-                         gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad gstreamer0.10-ffmpeg pngtools libtiff4-dev libtiff4
-                         libtiffxx0c2 libtiff-tools libjpeg8 libjpeg8-dev libjpeg8-dbg libjpeg-progs libavcodec-dev libavcodec53
-                         libavformat53 libavformat-dev libxine1-ffmpeg libxine-dev libxine1-bin libunicap2 libunicap2-dev
-                         libdc1394-22-dev libdc1394-22 libdc1394-utils swig libjpeg-progs libjpeg-dev libgtk2.0-0 libgtk2.0-dev
-                         gtk2-engines-pixbuf python-numpy python-opencv libgraphicsmagick++1-dev libgraphicsmagick++3
-                         libboost-python-dev tree webp libwebp-dev python-dateutil libqt4-dev libswscale-dev libtbb-dev
-                         libv4l-dev v4l-utils x264 jpeginfo)
+                         gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad pngtools)
+
+  case node['platform_version']
+  when '12.04'
+    required_packages += %w(gstreamer0.10-ffmpeg libtiff4-dev libtiff4 libtiffxx0c2 libtiff-tools
+                            libjpeg8 libjpeg8-dev libjpeg8-dbg libjpeg-progs libjpeg-progs libjpeg-dev
+                            libavcodec53 libavcodec-dev libavformat53 libavformat-dev
+                            libxine1 libxine-dev libxine1-ffmpeg libxine1-bin
+                            libunicap2 libunicap2-dev
+                            libdc1394-22-dev libdc1394-22 libdc1394-utils swig libgtk2.0-0 libgtk2.0-dev
+                            gtk2-engines-pixbuf python-numpy python-opencv python-dateutil
+                            libgraphicsmagick++1-dev libgraphicsmagick++3 libboost-python-dev
+                            tree webp libwebp-dev libqt4-dev libswscale-dev libtbb-dev
+                            libv4l-dev v4l-utils x264 jpeginfo)
+  else
+    required_packages += %w(libtiff5-dev libtiff5 libtiffxx5 libtiff-tools
+                            libjpeg8 libjpeg8-dev libjpeg8-dbg libjpeg-progs libjpeg-progs libjpeg-dev
+                            libavcodec54 libavcodec-dev libavformat54 libavformat-dev
+                            libxine2 libxine2-dev libxine2-ffmpeg libxine1-bin
+                            libunicap2 libunicap2-dev
+                            libdc1394-22-dev libdc1394-22 libdc1394-utils swig libgtk2.0-0 libgtk2.0-dev
+                            gtk2-engines-pixbuf python-numpy python-opencv python-dateutil
+                            libgraphicsmagick++1-dev libgraphicsmagick++3 libboost-python-dev
+                            tree webp libwebp-dev libqt4-dev libswscale-dev libtbb-dev
+                            libv4l-dev v4l-utils x264 jpeginfo)
+
+    Chef::Log.warn("some packages were skipped for #{node['platform_family']}-#{node['platform_version']} - gstreamer0.10-ffmpeg")
+  end
 
 when 'rhel'
   required_packages = []

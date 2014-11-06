@@ -1,6 +1,7 @@
 AllCops:
   Exclude:
     - Rakefile
+    - Berksfile
     - Vagrantfile
     - Thorfile
 AlignParameters:

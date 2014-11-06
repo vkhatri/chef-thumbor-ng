@@ -1,6 +1,5 @@
 
 default['thumbor_ng']['apt']['thumbor']['uri'] = 'http://ppa.launchpad.net/thumbor/ppa/ubuntu'
-default['thumbor_ng']['apt']['thumbor']['distribution'] = node['lsb']['codename']
 default['thumbor_ng']['apt']['thumbor']['keyserver'] = 'keyserver.ubuntu.com'
 default['thumbor_ng']['apt']['thumbor']['components'] = %w(main)
 default['thumbor_ng']['apt']['thumbor']['key'] = '68DFB11CCBEC8F27'
@@ -14,3 +13,10 @@ default['thumbor_ng']['apt']['multiverse']['components'] = %w(main multiverse re
 default['thumbor_ng']['apt']['multiverse']['key'] = '40976EAF437D05B5'
 default['thumbor_ng']['apt']['multiverse']['deb_src'] = false
 default['thumbor_ng']['apt']['multiverse']['action'] = 'add'
+
+case node['platform_version']
+when '14.04'
+  default['thumbor_ng']['apt']['thumbor']['distribution'] = 'saucy'
+else
+  default['thumbor_ng']['apt']['thumbor']['distribution'] = node['lsb']['codename']
+end

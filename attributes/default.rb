@@ -1,6 +1,6 @@
 ##### thumbor cookbook core attributes
 
-default['thumbor_ng']['version'] = '4.5.4'
+default['thumbor_ng']['version'] = '4.6.0'
 default['thumbor_ng']['workers'] = node['cpu']['total']
 default['thumbor_ng']['base_port'] = 9000
 default['thumbor_ng']['key'] = 'secretkey'
@@ -14,6 +14,12 @@ default['thumbor_ng']['upstart_respawn'] = true
 
 default['thumbor_ng']['conf_file'] = '/etc/thumbor.conf'
 default['thumbor_ng']['key_file'] = '/etc/thumbor.key'
+default['thumbor_ng']['service_config_file'] = case node['platform_family']
+                                               when 'debian'
+                                                 '/etc/default/thumbor'
+                                               when 'rhel'
+                                                 '/etc/sysconfig/thumbor'
+                                               end
 
 default['thumbor_ng']['proxy'] = 'nginx' # options: nginx
 
@@ -23,16 +29,19 @@ default['thumbor_ng']['notify_restart'] = true
 # thumbor workers log location
 default['thumbor_ng']['log_dir'] = '/var/log/thumbor'
 
+# thumbor log level
+default['thumbor_ng']['log_level'] = 'warning'
+
 # thumbor service user
 default['thumbor_ng']['setup_user']  = true
-default['thumbor_ng']['group']       = 'thumbor'
-default['thumbor_ng']['user']       = 'thumbor'
-default['thumbor_ng']['user_home']       = nil
+default['thumbor_ng']['group'] = 'thumbor'
+default['thumbor_ng']['user'] = 'thumbor'
+default['thumbor_ng']['user_home'] = nil
 
 # thumbor process limits
-default['thumbor_ng']['limits']['memlock']    = 'unlimited'
-default['thumbor_ng']['limits']['nofile']     = 48_000
-default['thumbor_ng']['limits']['nproc']      = 'unlimited'
+default['thumbor_ng']['limits']['memlock'] = 'unlimited'
+default['thumbor_ng']['limits']['nofile'] = 48_000
+default['thumbor_ng']['limits']['nproc'] = 'unlimited'
 
 ##### thumbor configuration options
 # https://github.com/thumbor/thumbor/wiki/Configuration

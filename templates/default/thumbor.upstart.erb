@@ -11,9 +11,9 @@ stop on runlevel [!2345]
 console log
 
 pre-start script
-    [ -r /etc/default/thumbor ] && . /etc/default/thumbor
+    [ -r <%= @service_config_file -%> ] && . <%= @service_config_file %>
     if [ "$enabled" = "0" ] && [ "$force" != "1" ] ; then
-        logger -is -t "$UPSTART_JOB" "Thumbor is disabled by /etc/default/thumbor, add force=1 to your service command"
+        logger -is -t "$UPSTART_JOB" "Thumbor is disabled by <%= @service_config_file -%>, add force=1 to your service command"
         stop
         exit 0
     fi
@@ -23,7 +23,7 @@ pre-start script
 end script
 
 post-stop script
-    [ -r /etc/default/thumbor ] && . /etc/default/thumbor
+    [ -r <%= @service_config_file -%> ] && . <%= @service_config_file %>
     for p in `echo ${port} | tr ',' ' '`; do
         stop thumbor-worker p=$p
     done

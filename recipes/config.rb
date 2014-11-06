@@ -74,11 +74,12 @@ template '/etc/init/thumbor.conf' do
   group 'root'
   mode '0755'
   notifies :restart, 'service[thumbor]', :delayed if node['thumbor_ng']['notify_restart']
+  variables(:service_config_file => node['thumbor_ng']['service_config_file'])
   only_if { node['thumbor_ng']['init_style'] == 'upstart' }
 end
 
 template '/etc/init/thumbor-worker.conf' do
-  source 'thumbor.upstart.worker.erb'
+  source 'thumbor-worker.upstart.erb'
   owner 'root'
   group 'root'
   mode '0755'
@@ -89,13 +90,15 @@ template '/etc/init/thumbor-worker.conf' do
             :key_file => node['thumbor_ng']['key_file'],
             :conf_file => node['thumbor_ng']['conf_file'],
             :log_dir => node['thumbor_ng']['log_dir'],
-            :listen_address => node['thumbor_ng']['listen_address']
+            :listen_address => node['thumbor_ng']['listen_address'],
+            :log_level => node['thumbor_ng']['log_level'],
+            :service_config_file => node['thumbor_ng']['service_config_file']
            )
   notifies :restart, 'service[thumbor]', :delayed if node['thumbor_ng']['notify_restart']
   only_if { node['thumbor_ng']['init_style'] == 'upstart' }
 end
 
-template '/etc/default/thumbor' do
+template node['thumbor_ng']['service_config_file'] do
   source 'thumbor.config.erb'
   owner 'root'
   group 'root'
