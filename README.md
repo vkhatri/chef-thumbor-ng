@@ -13,7 +13,9 @@ https://github.com/vkhatri/chef-thumbor-ng
 
 ## Supported OS
 
-Currently cookbook supports only Ubuntu 12.04.
+Currently cookbook supports only Ubuntu.
+
+This cookbook was tested on 12.04 and expected to work on 14.04.
 
 
 ## Supported Install Methods
@@ -200,7 +202,6 @@ Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
 
 ## TODO
 
-* Add support for Ubuntu 14.04
 * Add support for RHEL platform family
 * Add HAProxy frontend proxy
 * Add Varnish frontend proxy
