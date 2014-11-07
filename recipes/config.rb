@@ -91,8 +91,7 @@ template '/etc/init/thumbor-worker.conf' do
             :conf_file => node['thumbor_ng']['conf_file'],
             :log_dir => node['thumbor_ng']['log_dir'],
             :listen_address => node['thumbor_ng']['listen_address'],
-            :log_level => node['thumbor_ng']['log_level'],
-            :service_config_file => node['thumbor_ng']['service_config_file']
+            :log_level => node['thumbor_ng']['log_level']
            )
   notifies :restart, 'service[thumbor]', :delayed if node['thumbor_ng']['notify_restart']
   only_if { node['thumbor_ng']['init_style'] == 'upstart' }
