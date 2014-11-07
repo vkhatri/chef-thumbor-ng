@@ -1,6 +1,9 @@
 thumbor_ng Cookbook
 ================
 
+[![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
+
+
 This is a [Chef] Cookbook to Install and Configure [Thumbor].
 
 This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
@@ -213,7 +216,7 @@ Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
 4. Write tests for your change (if applicable)
-5. Run the tests (`rubocop` & `foodcritic`), ensuring they all pass
+5. Run the tests (`rake`), ensuring they all pass
 6. Write new resource/attribute description to `README.md`
 7. Write description about changes to `CHANGELOG.md`
 8. Submit a Pull Request using Github
