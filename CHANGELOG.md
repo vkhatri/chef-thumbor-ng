@@ -3,6 +3,13 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.1.7
+-----
+
+- Virender Khatri - added travis ci support
+
+- Virender Khatri - fixed foodcritic
+
 0.1.5
 -----
 
