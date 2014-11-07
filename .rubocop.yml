@@ -4,6 +4,7 @@ AllCops:
     - Berksfile
     - Vagrantfile
     - Thorfile
+    - Gemfile
 AlignParameters:
   Enabled: true
 Encoding:
