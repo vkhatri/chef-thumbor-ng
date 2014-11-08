@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Chef-thumbor-ng by vkhatri</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Chef-thumbor-ng</h1>
+        <p>Chef Cookbook to Install/Manage Thumbor</p>
+        <p class="view"><a href="https://github.com/vkhatri/chef-thumbor-ng">View the Project on GitHub <small>vkhatri/chef-thumbor-ng</small></a></p>
+        <ul>
+          <li><a href="https://github.com/vkhatri/chef-thumbor-ng/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/vkhatri/chef-thumbor-ng/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/vkhatri/chef-thumbor-ng">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="thumbor_ng-cookbook" class="anchor" href="#thumbor_ng-cookbook" aria-hidden="true"><span class="octicon octicon-link"></span></a>thumbor_ng Cookbook</h1>
+
+<p><a href="https://travis-ci.org/vkhatri/chef-thumbor-ng"><img src="https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master" alt="Build Status"></a></p>
+
+<p>This is a <a href="https://www.getchef.com/chef/">Chef</a> Cookbook to Install and Configure <a href="https://github.com/thumbor/thumbor">Thumbor</a>.</p>
+
+<p>This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.</p>
+
+<h2>
+<a id="repository" class="anchor" href="#repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository</h2>
+
+<p><a href="https://github.com/vkhatri/chef-thumbor-ng">https://github.com/vkhatri/chef-thumbor-ng</a></p>
+
+<h2>
+<a id="supported-os" class="anchor" href="#supported-os" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported OS</h2>
+
+<p>Currently cookbook supports only Ubuntu.</p>
+
+<p>This cookbook was tested on 12.04 and expected to work on 14.04.</p>
+
+<h2>
+<a id="supported-install-methods" class="anchor" href="#supported-install-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported Install Methods</h2>
+
+<p>This cookbook only supports <code>pip</code> based installation. As mentioned in <a href="https://github.com/thumbor/thumbor">Thumbor</a> wiki, new release is
+always available via <code>pip</code>. Other install methods like <code>source code</code> or <code>package</code> are not
+incorporated in this cookbook.</p>
+
+<h2>
+<a id="recipes" class="anchor" href="#recipes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recipes</h2>
+
+<ul>
+<li><p><code>thumbor_ng::default</code>    - default cookbook run_list recipe</p></li>
+<li><p><code>thumbor_ng::install</code>     - install packages required for thumbor</p></li>
+<li><p><code>thumbor_ng::user</code>        - setup user for thumbor service</p></li>
+<li><p><code>thumbor_ng::config</code>        - setup and mange thumbor configuration</p></li>
+<li><p><code>thumbor_ng::monit</code>         - setup monit checks for nginx/thumbor using cookbook <code>monit-ng</code></p></li>
+<li><p><code>thumbor_ng::nginx</code>         - setup and manage frontend proxy nginx for thumbor using cookbook <code>nginx</code></p></li>
+<li><p><code>thumbor_ng::redis</code>         - setup redis for thumbor using cookbook <code>redisio</code></p></li>
+<li><del> `thumbor_ng::haproxy`       - setup and mange fronend proxy haproxy for thumbor, not completed yet </del></li>
+<li><del> `thumbor_ng::varnish`       - setup and mange fronend proxy varnish for thumbor, not completed yet </del></li>
+</ul>
+
+<blockquote>
+<p>For run_list use <code>recipe[thumbor_ng::default]</code> or <code>recipe[thumbor_ng]</code></p>
+</blockquote>
+
+<h2>
+<a id="cookbook-advanced-attributes" class="anchor" href="#cookbook-advanced-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook Advanced Attributes</h2>
+
+<ul>
+<li><p><code>default['thumbor_ng']['proxy']</code> (default: <code>nginx</code>): thumbor service front end proxy, currently only supports nginx</p></li>
+<li><p><code>default['thumbor_ng']['storage']['type']</code> (default: <code>file</code>): thumbor storage type</p></li>
+<li><p><code>default['thumbor_ng']['init_style']</code> (default: <code>upstart</code>): thumbor service manager, options: initd upstart</p></li>
+<li><p><code>default['thumbor_ng']['notify_restart']</code> (default: <code>true</code>): notify thumbor service on a resource change</p></li>
+<li><p><code>default['thumbor_ng']['setup_redis']</code> (default: <code>true</code>): whether to setup redis instance using cookbook - <code>redisio</code></p></li>
+<li><p><code>default['thumbor_ng']['setup_user']</code> (default: <code>true</code>): setup user for thumbor service</p></li>
+<li><p><code>default['thumbor_ng']['monit']['enable']</code> (default: <code>false</code>): enables monit checks for nginx and thumbor service using cookbook - <code>monit-ng</code></p></li>
+<li><del> `default['thumbor_ng']['queue']['type']` (default: `redis`): thumbor detector queue type, option complete setup not tested yet </del></li>
+</ul>
+
+<h2>
+<a id="cookbook-core-attributes" class="anchor" href="#cookbook-core-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook Core Attributes</h2>
+
+<ul>
+<li><p><code>default['thumbor_ng']['version']</code> (default: <code>4.5.4</code>): <a href="https://github.com/thumbor/thumbor">Thumbor</a> release version</p></li>
+<li><p><code>default['thumbor_ng']['processes']</code> (default: <code>node['cpu']['total']</code>): # of thumbor processes, default utilizes all CPU cores</p></li>
+<li><p><code>default['thumbor_ng']['base_port']</code> (default: <code>9000</code>): thumbor service base port to spawn multiple processes</p></li>
+<li><p><code>default['thumbor_ng']['key']</code> (default: ``): thumbor secret key file content</p></li>
+<li><del> `default['thumbor_ng']['log_dir']` (default: `/var/log/thumbor`): thumbor logs directory, not yet tested </del></li>
+<li><p><code>default['thumbor_ng']['service_name']</code> (default: <code>thumbor</code>): thumbor service name</p></li>
+<li><p><code>default['thumbor_ng']['install_method']</code> (default: <code>pip</code>): thumbor install method</p></li>
+<li><p><code>default['thumbor_ng']['listen_address']</code> (default: <code>127.0.0.1</code>): inet for thumbor service, change it with caution</p></li>
+<li><p><code>default['thumbor_ng']['binary']</code> (default: <code>/usr/local/bin/thumbor</code>): thumbor binary location for thumbor service</p></li>
+<li><p><code>default['thumbor_ng']['upstart_respawn']</code> (default: <code>true</code>): respawn service if goes down</p></li>
+<li><p><code>default['thumbor_ng']['conf_file']</code> (default: <code>/etc/thumbor.conf</code>): thumbor configuration file</p></li>
+<li><p><code>default['thumbor_ng']['key_file']</code> (default: <code>/etc/thumbor.key</code>): thumbor key file</p></li>
+<li><p><code>default['thumbor_ng']['group']</code> (default: <code>thumbor</code>): thumbor service group</p></li>
+<li><p><code>default['thumbor_ng']['user']</code> (default: <code>thumbor</code>): thumbor service user</p></li>
+<li><p><code>default['thumbor_ng']['user_home']</code> (default: <code>nil</code>): thumbor service user home directory</p></li>
+</ul>
+
+<h2>
+<a id="cookbook-apt-repositories-attributes" class="anchor" href="#cookbook-apt-repositories-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook apt Repositories Attributes</h2>
+
+<ul>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['uri']</code> (default: <code>http://ppa.launchpad.net/thumbor/ppa/ubuntu</code>): repo uri</p></li>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['distribution']</code> (default: <code>node['lsb']['codename']</code>): repo distribution</p></li>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['keyserver']</code> (default: <code>keyserver.ubuntu.com</code>): repo keyserver</p></li>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['components']</code> (default: <code>[main]</code>): repo components</p></li>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['key']</code> (default: <code>68DFB11CCBEC8F27</code>): repo key</p></li>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['deb_src']</code> (default: <code>false</code>): whether to fetch source</p></li>
+<li><p><code>default['thumbor_ng']['apt']['thumbor']['action']</code> (default: <code>add</code>): apt_repository resource action</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['uri']</code> (default: <code>http://archive.ubuntu.com/ubuntu</code>): repo uri</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['distribution']</code> (default: <code>node['lsb']['codename']</code>): repo distribution</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['keyserver']</code> (default: <code>keyserver.ubuntu.com</code>): repo keyserver</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['components']</code> (default: <code>[main multiverse restricted universe]</code>): repo components</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['key']</code> (default: <code>40976EAF437D05B5</code>): repo key</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['deb_src']</code> (default: <code>false</code>): whether to fetch source</p></li>
+<li><p><code>default['thumbor_ng']['apt']['multiverse']['action']</code> (default: <code>add</code>): apt_repository resource action</p></li>
+</ul>
+
+<h2>
+<a id="cookbook-thumbor-service-ulimit-attributes" class="anchor" href="#cookbook-thumbor-service-ulimit-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook thumbor Service Ulimit Attributes</h2>
+
+<ul>
+<li><p><code>default['thumbor_ng']['limits']['memlock']</code> (default: <code>unlimited</code>): thumbor service memory limit</p></li>
+<li><p><code>default['thumbor_ng']['limits']['nofile']</code> (default: <code>48000</code>): thumbor service file limit</p></li>
+<li><p><code>default['thumbor_ng']['limits']['nproc']</code> (default: <code>unlimited</code>): thumbor service proc limit</p></li>
+</ul>
+
+<h2>
+<a id="cookbook-nginx-attributes" class="anchor" href="#cookbook-nginx-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook nginx Attributes</h2>
+
+<ul>
+<li><p><code>default['nginx']['default_site_enabled']</code> (default: <code>false</code>): disable default nginx site</p></li>
+<li><p><code>default['nginx']['worker_connections']</code> (default: <code>4096</code>): nginx worker connections</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['port']</code> (default: <code>80</code>): nginx port</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['server_name']</code> (default: <code>node['fqdn']</code>): nginx thumbor vhost server name</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['client_max_body_size']</code> (default: <code>10M</code>): nginx thumbor vhost client max body</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['proxy_read_timeout']</code> (default: <code>300</code>): nginx thumbor vhost proxy read timeout</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['proxy_cache']['enabled']</code> (default: <code>false</code>): enable proxy cache in nginx thumbor vhost</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['proxy_cache']['path']</code> (default: <code>/var/www/thumbor_cache</code>): nginx thumbor vhost proxy cache location</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['proxy_cache']['key_zone']</code> (default: <code>thumbor_cache</code>): nginx thumbor vhost proxy cache key zone</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['vhost']['cookbook']</code> (default: <code>thumbor_ng</code>): nginx thumbor vhost template cookbook name</p></li>
+<li><p><code>default['thumbor_ng']['nginx']['vhost']['template']</code> (default: <code>nginx.thumbor.vhost.erb</code>): nginx thumbor vhost template name</p></li>
+<li>
+<p><code>default['thumbor_ng']['nginx']['vhost']['variables']</code> (default: <code>{}</code>): nginx thumbor vhost template variables</p>
+
+<pre><code>For more nginx attributes, check out nginx cookbook
+</code></pre>
+</li>
+</ul>
+
+<h2>
+<a id="cookbook-redis-attributes" class="anchor" href="#cookbook-redis-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook redis Attributes</h2>
+
+<p>Redis is setup using cookbook <code>redisio</code>.</p>
+
+<pre><code>    For more nginx attributes, check out redisio cookbook
+</code></pre>
+
+<h2>
+<a id="cookbook-monit-attributes" class="anchor" href="#cookbook-monit-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook monit Attributes</h2>
+
+<p>Monit checks for <code>thumbor</code> and <code>nginx</code> (or <code>haproxy</code> or <code>varnish</code>).</p>
+
+<pre><code>    For more monit checks attributes &amp; configuration, check out monit-ng cookbook
+</code></pre>
+
+<h2>
+<a id="cookbook-thumbor-default-configuration-attributes" class="anchor" href="#cookbook-thumbor-default-configuration-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook thumbor Default Configuration Attributes</h2>
+
+<ul>
+<li><p><code>default['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH']</code> (default: <code>/var/lib/thumbor/file_storage</code>): thumbor file storage location</p></li>
+<li><p><code>default['thumbor_ng']['options']['RESULT_STORAGE_FILE_STORAGE_ROOT_PATH']</code> (default: <code>/var/lib/thumbor/result_storage</code>): thumbor result file storage location</p></li>
+</ul>
+
+<h2>
+<a id="cookbook-dependencies" class="anchor" href="#cookbook-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook Dependencies</h2>
+
+<ul>
+<li><code>apt</code></li>
+<li><code>python</code></li>
+<li><code>nginx</code></li>
+<li><code>ulimit</code></li>
+<li><code>monit-ng</code></li>
+<li><code>redisio</code></li>
+</ul>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Add support for RHEL platform family</li>
+<li>Add HAProxy frontend proxy</li>
+<li>Add Varnish frontend proxy</li>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork the repository on Github</li>
+<li>Create a named feature branch (like <code>add_component_x</code>)</li>
+<li>Write your change</li>
+<li>Write tests for your change (if applicable)</li>
+<li>Run the tests (<code>rake</code>), ensuring they all pass</li>
+<li>Write new resource/attribute description to <code>README.md</code>
+</li>
+<li>Write description about changes to PR</li>
+<li>Submit a Pull Request using Github</li>
+</ol>
+
+<h2>
+<a id="copyright--license" class="anchor" href="#copyright--license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright &amp; License</h2>
+
+<p>Authors:: Virender Khatri and <a href="https://github.com/vkhatri/chef-thumbor-ng/graphs/contributors">Contributors</a></p>
+
+<pre>
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/vkhatri">vkhatri</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
