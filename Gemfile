@@ -5,7 +5,6 @@ gem 'berkshelf'
 gem 'chefspec'
 gem 'foodcritic', '~> 3.0'
 gem 'rubocop',    '~> 0.24'
-# gem 'chef'
 
 # gem 'fauxhai'
 

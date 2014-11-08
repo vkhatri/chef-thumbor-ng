@@ -218,7 +218,7 @@ Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
 4. Write tests for your change (if applicable)
 5. Run the tests (`rake`), ensuring they all pass
 6. Write new resource/attribute description to `README.md`
-7. Write description about changes to `CHANGELOG.md`
+7. Write description about changes to PR
 8. Submit a Pull Request using Github
 
 
