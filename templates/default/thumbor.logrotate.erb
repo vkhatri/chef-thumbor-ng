@@ -6,7 +6,7 @@
 <%= @log_dir -%>/*.log {
         daily
         missingok
-        rotate 7
+        rotate <%= @rotate %>
         compress
         notifempty
         nocreate
