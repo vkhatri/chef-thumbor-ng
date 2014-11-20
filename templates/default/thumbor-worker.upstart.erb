@@ -19,6 +19,12 @@ umask 022
 setuid <%= @user %>
 setgid <%= @group %>
 
+limit nofile <%= @filehandle_limit -%> <%= @filehandle_limit %>
+
+limit nproc <%= @process_limit -%> <%= @process_limit %>
+
+limit memlock <%= @memory_limit -%> <%= @memory_limit %>
+
 env DAEMON=<%= @binary %>
 
 env conffile=<%= @conf_file %>
