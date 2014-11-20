@@ -3,6 +3,18 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.2.1
+-----
+
+- Virender Khatri - fixed thumbor service over writes worker logs issue
+
+- Virender Khatri - fixed thumbor service ulimit, added to worker upstart init
+
+- Virender Khatri - added key for saucy thumbor ppa
+
+- Virender Khatri - added logrotate resource for nginx, required for custom log, perhaps nginx cookbook
+                    would be the right place to fix this.
+
 0.1.7
 -----
 
