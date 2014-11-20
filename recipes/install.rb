@@ -26,6 +26,8 @@ when 'debian'
     distribution node['thumbor_ng']['apt']['thumbor']['distribution']
     components node['thumbor_ng']['apt']['thumbor']['components']
     deb_src node['thumbor_ng']['apt']['thumbor']['deb_src']
+    keyserver node['thumbor_ng']['apt']['thumbor']['keyserver']
+    key node['thumbor_ng']['apt']['thumbor']['key']
     action node['thumbor_ng']['apt']['thumbor']['action']
   end
 
