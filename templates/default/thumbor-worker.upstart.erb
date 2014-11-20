@@ -41,4 +41,4 @@ chdir /usr/local/lib/python2.7/dist-packages/thumbor
 
 instance $p
 
-exec $DAEMON -c "${conffile}" -i "${ip}" -k "${keyfile}" -p "${p}" -l "${log_level}" >$log_dir/thumbor-$p.log 2>&1
+exec $DAEMON -c "${conffile}" -i "${ip}" -k "${keyfile}" -p "${p}" -l "${log_level}" >>$log_dir/thumbor-$p.log 2>&1
