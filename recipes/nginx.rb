@@ -19,6 +19,17 @@
 
 include_recipe 'nginx'
 
+# may require different logrotate for different init_style
+template '/etc/logrotate.d/nginx' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  source 'nginx.logrotate.erb'
+  variables(:log_dir => node['nginx']['log_dir'],
+            :rotate => node['thumbor_ng']['logrotate']['rotate']
+           )
+end
+
 # nginx proxy cache location
 directory node['thumbor_ng']['nginx']['proxy_cache']['path'] do
   owner node['nginx']['user']

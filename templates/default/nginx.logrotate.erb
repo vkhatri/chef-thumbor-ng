@@ -1,0 +1,23 @@
+#
+# This file is managed by Chef.
+# Do NOT modify this file directly.
+#
+
+<%= @log_dir -%>/*.log {
+  daily
+  missingok
+  rotate <%= @rotate %>
+  compress
+  delaycompress
+  notifempty
+  create 0640 www-data adm
+  sharedscripts
+  prerotate
+    if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
+      run-parts /etc/logrotate.d/httpd-prerotate; \
+    fi \
+  endscript
+  postrotate
+    [ -s /run/nginx.pid ] && kill -USR1 `cat /run/nginx.pid`
+  endscript
+}
