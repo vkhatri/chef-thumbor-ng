@@ -38,7 +38,9 @@ template '/etc/logrotate.d/thumbor' do
   group 'root'
   mode '0755'
   source 'thumbor.logrotate.erb'
-  variables(:log_dir => node['thumbor_ng']['log_dir'])
+  variables(:log_dir => node['thumbor_ng']['log_dir'],
+            :rotate => node['thumbor_ng']['logrotate']['rotate']
+           )
 end
 
 # thumbor storage directory

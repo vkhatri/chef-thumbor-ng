@@ -32,6 +32,9 @@ default['thumbor_ng']['log_dir'] = '/var/log/thumbor'
 # thumbor log level
 default['thumbor_ng']['log_level'] = 'warning'
 
+# thumbor logrotate
+default['thumbor_ng']['logrotate']['rotate'] = 7
+
 # thumbor service user
 default['thumbor_ng']['setup_user']  = true
 default['thumbor_ng']['group'] = 'thumbor'
