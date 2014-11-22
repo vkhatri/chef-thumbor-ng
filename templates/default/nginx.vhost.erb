@@ -3,7 +3,7 @@
 # Do NOT modify this file directly.
 #
 
-upstream thumbor {
+upstream tbr {
     <% (@base_port...@base_port+@workers).to_a.each do |port| %>
     server <%= @listen_address -%>:<%= port %>;
     <% end %>
@@ -19,8 +19,14 @@ server {
     client_max_body_size <%= @client_max_body_size %>;
     proxy_read_timeout <%= @proxy_read_timeout %>;
 
+    default_type application/octet-stream;
     merge_slashes off;
     rewrite (.+)http:/([^/].*) $1http://$2 break;
+
+    location ^~ /tbr/ {
+        rewrite /tbr(/.*) $1 break;
+        proxy_pass http://tbr;
+    }
 
     location / {
         <% if @proxy_cache_enabled %>
@@ -37,7 +43,14 @@ server {
         # Tell client if response is from local cache
         add_header X-Cache-Status $upstream_cache_status;
         <% end %>
-        proxy_pass http://thumbor;
+        proxy_pass http://tbr;
+    }
+
+    location /doc/ {
+        alias /usr/share/doc/;
+        autoindex on;
+        allow 127.0.0.1;
+        deny all;
     }
 
     location = /favicon.ico {
