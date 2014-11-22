@@ -3,6 +3,13 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.2.3
+-----
+
+- Virender Khatri - fixing ulimit for nginx, issue #4
+
+- Virender Khatri - updated thumbor nginx vhost to probable cause of 499 errors
+
 0.2.1
 -----
 

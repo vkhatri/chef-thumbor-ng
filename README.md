@@ -1,7 +1,7 @@
 thumbor_ng Cookbook
 ================
 
-[![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.2.3-green.svg)](https://github.com/vkhatri/chef-thumbor-ng) [![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
 
 
 This is a [Chef] Cookbook to Install and Configure [Thumbor].
@@ -11,8 +11,7 @@ This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
 
 ## Repository
 
-https://github.com/vkhatri/chef-thumbor-ng
-
+http://vkhatri.github.io/chef-thumbor-ng
 
 ## Supported OS
 
