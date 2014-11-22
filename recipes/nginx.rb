@@ -30,6 +30,22 @@ template '/etc/logrotate.d/nginx' do
            )
 end
 
+config_file = case node['platform_family']
+              when 'rhel'
+                '/etc/sysconfig/nginx'
+              when 'debian'
+                '/etc/default/nginx'
+              end
+
+template config_file do
+  source 'nginx.service.config.erb'
+  owner node['nginx']['user']
+  group node['nginx']['group']
+  mode '0644'
+  notifies :restart, 'service[nginx]', :delayed if node['thumbor_ng']['notify_restart']
+  variables(:filehandle_limit => node['thumbor_ng']['limits']['nofile'])
+end
+
 # nginx proxy cache location
 directory node['thumbor_ng']['nginx']['proxy_cache']['path'] do
   owner node['nginx']['user']
