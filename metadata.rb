@@ -12,5 +12,6 @@ depends 'nginx'
 depends 'ulimit'
 depends 'monit-ng'
 depends 'redisio'
+depends 'cron', '>= 1.2.0'
 
 supports 'ubuntu'

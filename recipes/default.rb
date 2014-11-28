@@ -45,3 +45,6 @@ include_recipe 'thumbor_ng::config'
 
 # setup monit
 include_recipe 'thumbor_ng::monit' if node['thumbor_ng']['monit']['enable']
+
+# setup cron
+include_recipe 'thumbor_ng::cron'
