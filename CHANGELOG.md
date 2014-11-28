@@ -3,6 +3,13 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.2.5
+-----
+
+- Virender Khatri - added cron job for purging thumbor file storage
+
+- Virender Khatri - bump thumbor version to 4.7.1
+
 0.2.3
 -----
 
