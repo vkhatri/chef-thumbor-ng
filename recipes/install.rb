@@ -89,6 +89,7 @@ end
 python_pip 'remotecv'
 
 python_pip 'graphicsmagick-engine'
+python_pip 'opencv-engine'
 
 # install thumbor
 python_pip 'thumbor' do
