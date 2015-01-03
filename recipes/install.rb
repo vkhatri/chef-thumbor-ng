@@ -86,10 +86,9 @@ required_packages.each do |pkg|
 end
 
 # install dependency pip packages
-python_pip 'remotecv'
-
-python_pip 'graphicsmagick-engine'
-python_pip 'opencv-engine'
+node['thumbor_ng']['pip_dependencies'].each do |pkg|
+  python_pip pkg
+end
 
 # install thumbor
 python_pip 'thumbor' do
