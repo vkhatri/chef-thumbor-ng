@@ -8,6 +8,7 @@ default['thumbor_ng']['key'] = 'secretkey'
 default['thumbor_ng']['init_style'] = 'upstart' # options: upstart, initd
 default['thumbor_ng']['service_name'] = 'thumbor'
 default['thumbor_ng']['install_method'] = 'pip'
+default['thumbor_ng']['pip_dependencies'] = ['remotecv', 'graphicsmagick-engine', 'opencv-engine']
 default['thumbor_ng']['listen_address'] = '127.0.0.1'
 default['thumbor_ng']['binary'] = '/usr/local/bin/thumbor'
 default['thumbor_ng']['upstart_respawn'] = true
