@@ -3,10 +3,15 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.2.8
+-----
+
+- Richard Lee - PR #9, made pip dependencies configurable via attribute `node['thumbor_ng']['pip_dependencies']`
+
 0.2.7
 -----
 
-- Richard Less - PR #8, added pip package for opencv-engine
+- Richard Lee - PR #8, added pip package for opencv-engine
 
 - Virender Khatri - bump thumbor version to 4.8.0
 

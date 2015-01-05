@@ -11,7 +11,8 @@ This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
 
 ## Repository
 
-http://vkhatri.github.io/chef-thumbor-ng
+https://github.com/vkhatri/chef-thumbor-ng
+
 
 ## Supported OS
 
@@ -101,6 +102,7 @@ incorporated in this cookbook.
 
  * `default['thumbor_ng']['user_home']` (default: `nil`): thumbor service user home directory
 
+ * `default['thumbor_ng']['pip_dependencies']` (default: `['remotecv', 'graphicsmagick-engine', 'opencv-engine']`): thumbor pip dependencies, user may add custom pip packages
 
 ## Cookbook apt Repositories Attributes
 
