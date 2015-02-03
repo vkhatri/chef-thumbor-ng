@@ -47,7 +47,7 @@ when 'debian'
                          libtheora-dev libva-dev libvdpau-dev libvorbis-dev libx11-dev libxfixes-dev libxvidcore-dev
                          texi2html yasm zlib1g-dev zlib1g-dbg zlib1g libgstreamer0.10-0 libgstreamer0.10-dev libgstreamer0.10-0-dbg
                          gstreamer0.10-tools gstreamer0.10-plugins-base libgstreamer-plugins-base0.10-dev gstreamer0.10-plugins-good
-                         gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad pngtools)
+                         gstreamer0.10-plugins-ugly gstreamer0.10-plugins-bad pngtools gifsicle)
 
   case node['platform_version']
   when '12.04'
