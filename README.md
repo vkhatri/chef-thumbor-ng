@@ -1,7 +1,7 @@
 thumbor_ng Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.2.7-green.svg)](https://github.com/vkhatri/chef-thumbor-ng) [![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.3.1-green.svg)](https://github.com/vkhatri/chef-thumbor-ng) [![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
 
 
 This is a [Chef] Cookbook to Install and Configure [Thumbor].
@@ -16,9 +16,7 @@ https://github.com/vkhatri/chef-thumbor-ng
 
 ## Supported OS
 
-Currently cookbook supports only Ubuntu.
-
-This cookbook was tested on 12.04 and expected to work on 14.04.
+Currently cookbook only supports Ubuntu 12.04 & 14.04.
 
 
 ## Supported Install Methods

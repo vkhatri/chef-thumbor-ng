@@ -3,6 +3,15 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.3.1
+-----
+
+- Virender Khatri - added gifsicle package for gif images
+
+- Virender Khatri - bump thumbor version to v4.8.6
+
+- Virender Khatri - temporarily fix to keep travis status green
+
 0.2.8
 -----
 
