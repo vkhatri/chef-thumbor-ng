@@ -3,6 +3,11 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.3.2
+-----
+
+- Virender Khatri - bump thumbor version to v4.12.2
+
 0.3.1
 -----
 

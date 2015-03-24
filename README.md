@@ -1,7 +1,7 @@
 thumbor_ng Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.3.1-green.svg)](https://github.com/vkhatri/chef-thumbor-ng) [![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.3.2-green.svg)](https://github.com/vkhatri/chef-thumbor-ng) [![Build Status](https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master)](https://travis-ci.org/vkhatri/chef-thumbor-ng)
 
 
 This is a [Chef] Cookbook to Install and Configure [Thumbor].
@@ -70,7 +70,7 @@ incorporated in this cookbook.
 
 ## Cookbook Core Attributes
 
- * `default['thumbor_ng']['version']` (default: `4.5.4`): [Thumbor] release version
+ * `default['thumbor_ng']['version']` (default: `4.12.2`): [Thumbor] release version
 
  * `default['thumbor_ng']['processes']` (default: `node['cpu']['total']`): # of thumbor processes, default utilizes all CPU cores
 
