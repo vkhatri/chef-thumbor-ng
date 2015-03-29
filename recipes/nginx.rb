@@ -76,7 +76,8 @@ template '/etc/nginx/sites-available/thumbor' do
         :proxy_read_timeout => node['thumbor_ng']['nginx']['proxy_read_timeout'],
         :proxy_cache_enabled => node['thumbor_ng']['nginx']['proxy_cache']['enabled'],
         :proxy_cache_path => node['thumbor_ng']['nginx']['proxy_cache']['path'],
-        :proxy_cache_key_zone => node['thumbor_ng']['nginx']['proxy_cache']['key_zone']
+        :proxy_cache_key_zone => node['thumbor_ng']['nginx']['proxy_cache']['key_zone'],
+        :enable_status => node['thumbor_ng']['nginx']['enable_status']
       }
     else
       node['thumbor_ng']['nginx']['vhost']['variables']

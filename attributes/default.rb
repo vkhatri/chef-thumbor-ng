@@ -68,6 +68,7 @@ node.default['nginx']['worker_connections'] = '4096'
 
 # nginx thumbor vhost configuration
 default['thumbor_ng']['nginx']['port'] = 80
+default['thumbor_ng']['nginx']['enable_status'] = false
 default['thumbor_ng']['nginx']['server_name'] = node['fqdn']
 default['thumbor_ng']['nginx']['client_max_body_size'] = '10M'
 default['thumbor_ng']['nginx']['proxy_read_timeout'] = '300'
