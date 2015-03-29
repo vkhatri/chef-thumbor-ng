@@ -3,6 +3,11 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
+0.3.5
+-----
+
+- Virender Khatri - disable nginx status by default, added optional attribute
+
 0.3.3
 -----
 
