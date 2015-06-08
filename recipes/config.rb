@@ -113,7 +113,7 @@ template node['thumbor_ng']['service_config_file'] do
             :conf_file => node['thumbor_ng']['conf_file'],
             :key_file => node['thumbor_ng']['key_file'],
             :listen_address => node['thumbor_ng']['listen_address']
-            )
+           )
   only_if { node['thumbor_ng']['init_style'] == 'upstart' }
 end
 
