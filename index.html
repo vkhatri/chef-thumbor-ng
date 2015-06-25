@@ -4,33 +4,45 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Chef Thumbor by vkhatri</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
-    <div class="wrapper">
+
       <header>
         <h1>Chef Thumbor</h1>
         <p>Chef Cookbook to Install/Manage Thumbor Service</p>
-        <p class="view"><a href="https://github.com/vkhatri/chef-thumbor-ng">View the Project on GitHub <small>vkhatri/chef-thumbor-ng</small></a></p>
-        <ul>
-          <li><a href="https://github.com/vkhatri/chef-thumbor-ng/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/vkhatri/chef-thumbor-ng/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/vkhatri/chef-thumbor-ng">View On <strong>GitHub</strong></a></li>
-        </ul>
       </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/vkhatri/chef-thumbor-ng" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/vkhatri/chef-thumbor-ng/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/vkhatri/chef-thumbor-ng/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
       <section>
         <h1>
 <a id="thumbor_ng-cookbook" class="anchor" href="#thumbor_ng-cookbook" aria-hidden="true"><span class="octicon octicon-link"></span></a>thumbor_ng Cookbook</h1>
 
-<p><a href="https://github.com/vkhatri/chef-thumbor-ng"><img src="http://img.shields.io/badge/cookbook-v0.2.3-green.svg" alt="Cookbook"></a> <a href="https://travis-ci.org/vkhatri/chef-thumbor-ng"><img src="https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master" alt="Build Status"></a></p>
+<p><a href="https://github.com/vkhatri/chef-thumbor-ng"><img src="http://img.shields.io/badge/cookbook-v0.3.5-green.svg" alt="Cookbook"></a> <a href="https://travis-ci.org/vkhatri/chef-thumbor-ng"><img src="https://travis-ci.org/vkhatri/chef-thumbor-ng.svg?branch=master" alt="Build Status"></a></p>
 
 <p>This is a <a href="https://www.getchef.com/chef/">Chef</a> Cookbook to Install and Configure <a href="https://github.com/thumbor/thumbor">Thumbor</a>.</p>
 
@@ -39,14 +51,12 @@
 <h2>
 <a id="repository" class="anchor" href="#repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Repository</h2>
 
-<p><a href="http://vkhatri.github.io/chef-thumbor-ng">http://vkhatri.github.io/chef-thumbor-ng</a></p>
+<p><a href="https://github.com/vkhatri/chef-thumbor-ng">https://github.com/vkhatri/chef-thumbor-ng</a></p>
 
 <h2>
 <a id="supported-os" class="anchor" href="#supported-os" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported OS</h2>
 
-<p>Currently cookbook supports only Ubuntu.</p>
-
-<p>This cookbook was tested on 12.04 and expected to work on 14.04.</p>
+<p>Currently cookbook only supports Ubuntu 12.04 &amp; 14.04.</p>
 
 <h2>
 <a id="supported-install-methods" class="anchor" href="#supported-install-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Supported Install Methods</h2>
@@ -92,7 +102,7 @@ incorporated in this cookbook.</p>
 <a id="cookbook-core-attributes" class="anchor" href="#cookbook-core-attributes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cookbook Core Attributes</h2>
 
 <ul>
-<li><p><code>default['thumbor_ng']['version']</code> (default: <code>4.5.4</code>): <a href="https://github.com/thumbor/thumbor">Thumbor</a> release version</p></li>
+<li><p><code>default['thumbor_ng']['version']</code> (default: <code>5.0.3</code>): <a href="https://github.com/thumbor/thumbor">Thumbor</a> release version</p></li>
 <li><p><code>default['thumbor_ng']['processes']</code> (default: <code>node['cpu']['total']</code>): # of thumbor processes, default utilizes all CPU cores</p></li>
 <li><p><code>default['thumbor_ng']['base_port']</code> (default: <code>9000</code>): thumbor service base port to spawn multiple processes</p></li>
 <li><p><code>default['thumbor_ng']['key']</code> (default: ``): thumbor secret key file content</p></li>
@@ -107,6 +117,7 @@ incorporated in this cookbook.</p>
 <li><p><code>default['thumbor_ng']['group']</code> (default: <code>thumbor</code>): thumbor service group</p></li>
 <li><p><code>default['thumbor_ng']['user']</code> (default: <code>thumbor</code>): thumbor service user</p></li>
 <li><p><code>default['thumbor_ng']['user_home']</code> (default: <code>nil</code>): thumbor service user home directory</p></li>
+<li><p><code>default['thumbor_ng']['pip_dependencies']</code> (default: <code>['remotecv', 'graphicsmagick-engine', 'opencv-engine']</code>): thumbor pip dependencies, user may add custom pip packages</p></li>
 </ul>
 
 <h2>
@@ -240,11 +251,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 </pre>
       </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/vkhatri">vkhatri</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/vkhatri">vkhatri</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
