@@ -37,9 +37,6 @@ else
   include_recipe 'thumbor_ng::nginx'
 end
 
-# setup redis
-include_recipe 'thumbor_ng::redis'
-
 # thumbor configuration
 include_recipe 'thumbor_ng::config'
 

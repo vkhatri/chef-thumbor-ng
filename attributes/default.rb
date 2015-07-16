@@ -79,12 +79,3 @@ default['thumbor_ng']['nginx']['proxy_cache_valid'] = '900s'
 default['thumbor_ng']['nginx']['vhost']['cookbook'] = 'thumbor_ng'
 default['thumbor_ng']['nginx']['vhost']['template'] = 'nginx.vhost.erb'
 default['thumbor_ng']['nginx']['vhost']['variables'] = {}
-
-##### redisio
-# keeping redis configuration minimal.
-# modify attributes for cookbook redisio as per requirement
-
-# setup local redis server
-default['thumbor_ng']['setup_redis']  = false
-
-node.default['redisio']['version'] = '2.8.17'

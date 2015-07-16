@@ -25,6 +25,14 @@ This cookbook only supports `pip` based installation. As mentioned in [Thumbor] 
 always available via `pip`. Other install methods like `source code` or `package` are not
 incorporated in this cookbook.
 
+
+## Major Changes
+
+### v0.4.0
+
+Redis setup is not within the scope of this cookbook and hence `redisio` cookbook
+dependency has been removed.
+
 ## Recipes
 
 - `thumbor_ng::default`    - default cookbook run_list recipe
@@ -38,8 +46,6 @@ incorporated in this cookbook.
 - `thumbor_ng::monit`		  - setup monit checks for nginx/thumbor using cookbook `monit-ng`
 
 - `thumbor_ng::nginx`		  - setup and manage frontend proxy nginx for thumbor using cookbook `nginx`
-
-- `thumbor_ng::redis`		  - setup redis for thumbor using cookbook `redisio`
 
 - <del> `thumbor_ng::haproxy`		- setup and mange fronend proxy haproxy for thumbor, not completed yet </del>
 
@@ -57,8 +63,6 @@ incorporated in this cookbook.
  * `default['thumbor_ng']['init_style']` (default: `upstart`): thumbor service manager, options: initd upstart
 
  * `default['thumbor_ng']['notify_restart']` (default: `true`): notify thumbor service on a resource change
-
- * `default['thumbor_ng']['setup_redis']` (default: `true`): whether to setup redis instance using cookbook - `redisio`
 
  * `default['thumbor_ng']['setup_user']` (default: `true`): setup user for thumbor service
 
@@ -171,13 +175,6 @@ incorporated in this cookbook.
         For more nginx attributes, check out nginx cookbook
 
 
-## Cookbook redis Attributes
-
-Redis is setup using cookbook `redisio`.
-
-        For more nginx attributes, check out redisio cookbook
-
-
 ## Cookbook monit Attributes
 
 Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
@@ -199,7 +196,6 @@ Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
 * `nginx`
 * `ulimit`
 * `monit-ng`
-* `redisio`
 
 
 ## TODO
