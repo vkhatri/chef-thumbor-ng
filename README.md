@@ -70,7 +70,7 @@ incorporated in this cookbook.
 
 ## Cookbook Core Attributes
 
- * `default['thumbor_ng']['version']` (default: `5.0.3`): [Thumbor] release version
+ * `default['thumbor_ng']['version']` (default: `5.0.4`): [Thumbor] release version
 
  * `default['thumbor_ng']['processes']` (default: `node['cpu']['total']`): # of thumbor processes, default utilizes all CPU cores
 
