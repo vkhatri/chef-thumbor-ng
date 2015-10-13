@@ -1,4 +1,9 @@
 *~
+.rbx
+*.class
+.kitchen/
+.kitchen.local.yml
+tmp/
 *#
 .#*
 \#*#
@@ -12,9 +17,12 @@ pkg/
 Berksfile.lock
 
 # Bundler
+.vendor
 Gemfile.lock
 bin/*
 .bundle/*
+.DS_Store
+coverage/
 
 .kitchen/
 .kitchen.local.yml
