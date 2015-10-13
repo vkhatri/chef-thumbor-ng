@@ -9,6 +9,8 @@ This is a [Chef] Cookbook to Install and Configure [Thumbor].
 This cookbook was heavily inspired from thumbor cookbook maintained by Zanui.
 
 
+>> For Production environment, always prefer the [most recent release](https://supermarket.chef.io/cookbooks/thumbor_ng).
+
 ## Repository
 
 https://github.com/vkhatri/chef-thumbor-ng
@@ -74,7 +76,7 @@ dependency has been removed.
 
 ## Cookbook Core Attributes
 
- * `default['thumbor_ng']['version']` (default: `5.0.6`): [Thumbor] release version
+ * `default['thumbor_ng']['version']` (default: `5.1.0`): [Thumbor] release version
 
  * `default['thumbor_ng']['processes']` (default: `node['cpu']['total']`): # of thumbor processes, default utilizes all CPU cores
 
