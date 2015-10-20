@@ -1,4 +1,6 @@
 language: ruby
+cache: bundler
+sudo: false
 bundler_args: --without integration development
 rvm:
   - 2.1
