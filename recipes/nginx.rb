@@ -26,6 +26,9 @@ template '/etc/logrotate.d/nginx' do
   mode 0644
   source 'nginx.logrotate.erb'
   variables(:log_dir => node['nginx']['log_dir'],
+            :user => node['nginx']['user'],
+            :group => node['nginx']['group'],
+            :size => node['thumbor_ng']['logrotate']['size'],
             :rotate => node['thumbor_ng']['logrotate']['rotate']
            )
 end

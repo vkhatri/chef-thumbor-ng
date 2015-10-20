@@ -27,7 +27,7 @@ when 'nginx'
     group 'app'
     start '/etc/init.d/nginx start'
     stop '/etc/init.d/nginx stop'
-    tests [{ 'condition' => "failed port #{node['thumbor_ng']['nginx']['port']}", 'action'    => 'restart' }]
+    tests [{ 'condition' => "failed port #{node['thumbor_ng']['nginx']['port']}", 'action' => 'restart' }]
   end
 end
 

@@ -7,7 +7,7 @@
 #
 
 <% @options.each do |(key, value)| -%>
-<% if !value.nil? -%>
+<% unless value.nil? -%>
 <%  value = ['True', 'False', 'None'].include?(value) ? value : value.to_json %>
 <%= "#{key} = #{value}" %>
 <% end -%>

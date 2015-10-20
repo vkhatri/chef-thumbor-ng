@@ -4,10 +4,12 @@
 #
 
 <%= @log_dir -%>/*.log {
-        daily
-        missingok
-        rotate <%= @rotate %>
-        compress
-        notifempty
-        nocreate
+  daily
+  missingok
+  rotate <%= @rotate %>
+  compress
+  notifempty
+  copytruncate
+  size <%= @size %>
+  create 0640 <%= @user %> <%= @group %>
 }

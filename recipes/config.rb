@@ -39,7 +39,10 @@ template '/etc/logrotate.d/thumbor' do
   mode 0644
   source 'thumbor.logrotate.erb'
   variables(:log_dir => node['thumbor_ng']['log_dir'],
-            :rotate => node['thumbor_ng']['logrotate']['rotate']
+            :user => node['thumbor_ng']['user'],
+            :group => node['thumbor_ng']['group'],
+            :rotate => node['thumbor_ng']['logrotate']['rotate'],
+            :size => node['thumbor_ng']['logrotate']['size']
            )
 end
 

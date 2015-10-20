@@ -35,9 +35,10 @@ default['thumbor_ng']['log_level'] = 'warning'
 
 # thumbor logrotate
 default['thumbor_ng']['logrotate']['rotate'] = 7
+default['thumbor_ng']['logrotate']['size'] = '1G'
 
 # thumbor service user
-default['thumbor_ng']['setup_user']  = true
+default['thumbor_ng']['setup_user'] = true
 default['thumbor_ng']['group'] = 'thumbor'
 default['thumbor_ng']['user'] = 'thumbor'
 default['thumbor_ng']['user_home'] = nil

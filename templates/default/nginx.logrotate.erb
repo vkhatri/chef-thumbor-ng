@@ -8,9 +8,9 @@
   missingok
   rotate <%= @rotate %>
   compress
-  delaycompress
   notifempty
-  create 0640 www-data adm
+  size <%= @size %>
+  create 0640 <%= @user %> <%= @group %>
   sharedscripts
   prerotate
     if [ -d /etc/logrotate.d/httpd-prerotate ]; then \
