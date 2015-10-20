@@ -32,7 +32,7 @@ incorporated in this cookbook.
 
 ### v0.4.0
 
-Redis setup is not within the scope of this cookbook and hence `redisio` cookbook
+Redis setup is not in the scope of this cookbook and hence `redisio` cookbook
 dependency has been removed.
 
 ## Recipes
@@ -78,7 +78,7 @@ dependency has been removed.
 
  * `default['thumbor_ng']['version']` (default: `5.1.0`): [Thumbor] release version
 
- * `default['thumbor_ng']['processes']` (default: `node['cpu']['total']`): # of thumbor processes, default utilizes all CPU cores
+ * `default['thumbor_ng']['workers']` (default: `node['cpu']['total']`): # of thumbor processes, default utilizes all CPU cores
 
  * `default['thumbor_ng']['base_port']` (default: `9000`): thumbor service base port to spawn multiple processes
 
@@ -174,6 +174,7 @@ dependency has been removed.
 
  * `default['thumbor_ng']['nginx']['vhost']['variables']` (default: `{}`): nginx thumbor vhost template variables
 
+ * `default['thumbor_ng']['nginx']['enable_status']` (default: `false ): enable nginx `/nginx_status`
         For more nginx attributes, check out nginx cookbook
 
 
@@ -189,6 +190,30 @@ Monit checks for `thumbor` and `nginx` (or `haproxy` or `varnish`).
  * `default['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH']` (default: `/var/lib/thumbor/file_storage`): thumbor file storage location
 
  * `default['thumbor_ng']['options']['RESULT_STORAGE_FILE_STORAGE_ROOT_PATH']` (default: `/var/lib/thumbor/result_storage`): thumbor result file storage location
+
+
+## Cookbook thumbor File Storage Purge Cron Attributes
+
+ * `default['thumbor_ng']['cron']['minute']` (default: `0`): cron attribute
+
+ * `default['thumbor_ng']['cron']['hour']` (default: `03`): cron attribute
+
+ * `default['thumbor_ng']['cron']['day']` (default: `*`): cron attribute
+
+ * `default['thumbor_ng']['cron']['month']` (default: `*`): cron attribute
+
+ * `default['thumbor_ng']['cron']['user']` (default: `root`): cron attribute
+
+ * `default['thumbor_ng']['cron']['path']` (default: `nil`): cron attribute
+
+ * `default['thumbor_ng']['cron']['shell']` (default: `nil`): cron attribute
+
+ * `default['thumbor_ng']['cron']['mailto']` (default: `nil`): cron attribute
+
+ * `default['thumbor_ng']['cron']['home']` (default: `nil`): cron attribute
+
+ * `default['thumbor_ng']['cron']['action']` (default: `:delete`): disable by default
+
 
 
 ## Cookbook Dependencies
