@@ -36,7 +36,7 @@ end
 template '/etc/logrotate.d/thumbor' do
   owner 'root'
   group 'root'
-  mode '0755'
+  mode 0644
   source 'thumbor.logrotate.erb'
   variables(:log_dir => node['thumbor_ng']['log_dir'],
             :rotate => node['thumbor_ng']['logrotate']['rotate']

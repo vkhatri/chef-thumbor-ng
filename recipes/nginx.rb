@@ -23,7 +23,7 @@ include_recipe 'nginx'
 template '/etc/logrotate.d/nginx' do
   owner 'root'
   group 'root'
-  mode '0755'
+  mode 0644
   source 'nginx.logrotate.erb'
   variables(:log_dir => node['nginx']['log_dir'],
             :rotate => node['thumbor_ng']['logrotate']['rotate']
