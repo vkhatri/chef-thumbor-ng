@@ -3,10 +3,14 @@ thumbor_ng CHANGELOG
 
 This file is used to list changes made in each version of the thumbor_ng cookbook.
 
-0.4.2
+0.4.3
 -----
 
 - Virender Khatri - bump thumbor version to 6.1.5
+
+- Virender Khatri - fix rubocop
+
+- Virender Khatri - add issue_url and source_url
 
 0.4.1
 -----
