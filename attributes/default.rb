@@ -1,6 +1,4 @@
-##### thumbor cookbook core attributes
-
-default['thumbor_ng']['version'] = '5.1.0'
+default['thumbor_ng']['version'] = '6.1.5'
 default['thumbor_ng']['workers'] = node['cpu']['total']
 default['thumbor_ng']['base_port'] = 9000
 default['thumbor_ng']['key'] = 'secretkey'
