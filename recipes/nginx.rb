@@ -23,14 +23,13 @@ include_recipe 'nginx'
 template '/etc/logrotate.d/nginx' do
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   source 'nginx.logrotate.erb'
   variables(:log_dir => node['nginx']['log_dir'],
             :user => node['nginx']['user'],
             :group => node['nginx']['group'],
             :size => node['thumbor_ng']['logrotate']['size'],
-            :rotate => node['thumbor_ng']['logrotate']['rotate']
-           )
+            :rotate => node['thumbor_ng']['logrotate']['rotate'])
 end
 
 config_file = case node['platform_family']
@@ -80,8 +79,7 @@ template '/etc/nginx/sites-available/thumbor' do
         :proxy_cache_enabled => node['thumbor_ng']['nginx']['proxy_cache']['enabled'],
         :proxy_cache_path => node['thumbor_ng']['nginx']['proxy_cache']['path'],
         :proxy_cache_key_zone => node['thumbor_ng']['nginx']['proxy_cache']['key_zone'],
-        :enable_status => node['thumbor_ng']['nginx']['enable_status']
-      }
+        :enable_status => node['thumbor_ng']['nginx']['enable_status'] }
     else
       node['thumbor_ng']['nginx']['vhost']['variables']
     end

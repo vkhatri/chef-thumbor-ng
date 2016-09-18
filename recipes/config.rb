@@ -36,21 +36,20 @@ end
 template '/etc/logrotate.d/thumbor' do
   owner 'root'
   group 'root'
-  mode 0644
+  mode 0o644
   source 'thumbor.logrotate.erb'
   variables(:log_dir => node['thumbor_ng']['log_dir'],
             :user => node['thumbor_ng']['user'],
             :group => node['thumbor_ng']['group'],
             :rotate => node['thumbor_ng']['logrotate']['rotate'],
-            :size => node['thumbor_ng']['logrotate']['size']
-           )
+            :size => node['thumbor_ng']['logrotate']['size'])
 end
 
 # thumbor storage directory
 directory node['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH'] do
   owner node['thumbor_ng']['user']
   group node['thumbor_ng']['group']
-  mode 0755
+  mode 0o755
   recursive true
   notifies :restart, 'service[thumbor]', :delayed if node['thumbor_ng']['notify_restart']
 end
@@ -59,7 +58,7 @@ end
 directory node['thumbor_ng']['options']['RESULT_STORAGE_FILE_STORAGE_ROOT_PATH'] do
   owner node['thumbor_ng']['user']
   group node['thumbor_ng']['group']
-  mode 0755
+  mode 0o755
   recursive true
   notifies :restart, 'service[thumbor]', :delayed if node['thumbor_ng']['notify_restart']
 end
@@ -99,8 +98,7 @@ template '/etc/init/thumbor-worker.conf' do
             :log_level => node['thumbor_ng']['log_level'],
             :filehandle_limit => node['thumbor_ng']['limits']['nofile'],
             :process_limit => node['thumbor_ng']['limits']['nproc'],
-            :memory_limit => node['thumbor_ng']['limits']['memlock']
-           )
+            :memory_limit => node['thumbor_ng']['limits']['memlock'])
   notifies :restart, 'service[thumbor]', :delayed if node['thumbor_ng']['notify_restart']
   only_if { node['thumbor_ng']['init_style'] == 'upstart' }
 end
@@ -115,8 +113,7 @@ template node['thumbor_ng']['service_config_file'] do
             :base_port => node['thumbor_ng']['base_port'],
             :conf_file => node['thumbor_ng']['conf_file'],
             :key_file => node['thumbor_ng']['key_file'],
-            :listen_address => node['thumbor_ng']['listen_address']
-           )
+            :listen_address => node['thumbor_ng']['listen_address'])
   only_if { node['thumbor_ng']['init_style'] == 'upstart' }
 end
 

@@ -20,7 +20,7 @@
 directory "#{node['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH']}_purge" do
   owner node['thumbor_ng']['user']
   group node['thumbor_ng']['group']
-  mode 0755
+  mode 0o755
   recursive true
   only_if { node['thumbor_ng']['options']['FILE_STORAGE_ROOT_PATH'] != 'None' }
 end

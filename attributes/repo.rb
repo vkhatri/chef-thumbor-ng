@@ -14,9 +14,9 @@ default['thumbor_ng']['apt']['multiverse']['key'] = '40976EAF437D05B5'
 default['thumbor_ng']['apt']['multiverse']['deb_src'] = false
 default['thumbor_ng']['apt']['multiverse']['action'] = 'add'
 
-case node['platform_version']
-when '14.04'
-  default['thumbor_ng']['apt']['thumbor']['distribution'] = 'saucy'
-else
-  default['thumbor_ng']['apt']['thumbor']['distribution'] = node['lsb']['codename']
-end
+default['thumbor_ng']['apt']['thumbor']['distribution'] = case node['platform_version']
+                                                          when '14.04'
+                                                            'saucy'
+                                                          else
+                                                            node['lsb']['codename']
+                                                          end
