@@ -76,7 +76,7 @@ dependency has been removed.
 
 ## Cookbook Core Attributes
 
- * `default['thumbor_ng']['version']` (default: `5.1.0`): [Thumbor] release version
+ * `default['thumbor_ng']['version']` (default: `6.1.5`): [Thumbor] release version
 
  * `default['thumbor_ng']['workers']` (default: `node['cpu']['total']`): # of thumbor processes, default utilizes all CPU cores
 

@@ -6,6 +6,9 @@ description 'Installs/Configures Thumbor'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.4.1'
 
+source_url 'https://github.com/vkhatri/chef-thumbor-ng' if respond_to?(:source_url)
+issues_url 'https://github.com/vkhatri/chef-thumbor-ng/issues' if respond_to?(:issues_url)
+
 depends 'apt'
 depends 'python'
 depends 'nginx'
